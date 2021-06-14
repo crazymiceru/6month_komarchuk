@@ -27,10 +27,13 @@ namespace SpritePlatformer
 
         public void LateExecute()
         {
-            var _addPosition = (Vector3)((_targetTransform.position - _startTargetPos) * _coefficient);
-            if (_repeat.x != 0) _addPosition.x = (_addPosition.x + _repeat.x * 100) % _repeat.x;
-            if (_repeat.y != 0) _addPosition.y = (_addPosition.x + _repeat.y * 100) % _repeat.y;
-            _transform.position = _targetTransform.position - _offset - _addPosition;
+            if (_targetTransform != null)
+            {
+                var _addPosition = (Vector3)((_targetTransform.position - _startTargetPos) * _coefficient);
+                if (_repeat.x != 0) _addPosition.x = (_addPosition.x + _repeat.x * 100) % _repeat.x;
+                if (_repeat.y != 0) _addPosition.y = (_addPosition.x + _repeat.y * 100) % _repeat.y;
+                _transform.position = _targetTransform.position - _offset - _addPosition;
+            }
         }
 
         public void Dispose()

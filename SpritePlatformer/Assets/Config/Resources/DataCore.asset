@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cefaf1007a0896499251ae2828591d1, type: 3}
+  m_Name: DataCore
+  m_EditorClassIdentifier: 
+  powerMove: 15000
+  powerJump: 1000
+  maxSpeed: 20
+  maxLive: 1
+  destroyEffects: {fileID: 6259449542451428189, guid: 9b01db37e286b384fb540032c621328d, type: 3}
+  timeViewDestroyEffects: 10
+  AttackPower: 1
+  addScores: 0

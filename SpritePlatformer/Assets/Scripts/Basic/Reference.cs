@@ -13,6 +13,7 @@ namespace SpritePlatformer
             get => _mainCamera != null ? _mainCamera : _mainCamera = Camera.main;
         }
 
+        internal GameObject player;
         internal Transform Trash => _trash != null ? _trash : _trash = GameObject.FindObjectOfType<TagFolderActiveElements>().transform;
     }
 }

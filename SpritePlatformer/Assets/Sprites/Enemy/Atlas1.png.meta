@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: 593b13b091c53034782680285a6eb3c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5333349321414413341
+    second: Cannon1
+  - first:
+      213: 4464646412449416814
+    second: CannonFire
+  - first:
+      213: 81700387527080288
+    second: Core
+  - first:
+      213: -7832285465094024628
+    second: Cannon2
+  - first:
+      213: -7481155482866007203
+    second: Cannon3
+  - first:
+      213: 3044960551085230824
+    second: Atlas1_9
+  - first:
+      213: 2916363466633658560
+    second: Atlas1_10
+  - first:
+      213: 7542485740813467189
+    second: Atlas1_11
+  - first:
+      213: 5315797300628676654
+    second: Atlas1_17
+  - first:
+      213: 3458567544598289016
+    second: Atlas1_18
+  - first:
+      213: 5514214828224799609
+    second: Fire
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cannon1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 205
+        height: 104
+      alignment: 9
+      pivot: {x: 0.40963537, y: 0.5356325}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 102.5, y: 50.5}
+        - {x: 86.5, y: 42.5}
+        - {x: 21.5, y: 64.5}
+        - {x: -52.5, y: 64.5}
+        - {x: -73.5, y: 37.5}
+        - {x: -100.5, y: 33.5}
+        - {x: -102.5, y: 32.5}
+        - {x: -102.5, y: 20.5}
+        - {x: -76.5, y: 1.5}
+        - {x: -35.5, y: -45.5}
+        - {x: -19.5, y: -56.5}
+        - {x: 9.5, y: -58.5}
+        - {x: 26.5, y: -44.5}
+        - {x: 40.5, y: -26.5}
+        - {x: 85.5, y: -13.5}
+        - {x: 102.5, y: -15.5}
+      tessellationDetail: 0.1
+      bones: []
+      spriteID: 3e3f50aac032cf5b0800000000000000
+      internalID: -5333349321414413341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CannonFire
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 426
+        width: 76
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6605c5e14c95fd30800000000000000
+      internalID: 4464646412449416814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Core
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 404
+        width: 114
+        height: 100
+      alignment: 9
+      pivot: {x: 0.36895296, y: 0.44024232}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 12, y: 33}
+        - {x: 28, y: 39}
+        - {x: 35, y: 28}
+        - {x: 41, y: 25}
+        - {x: 57, y: 27}
+        - {x: 57, y: 45}
+        - {x: 51, y: 50}
+        - {x: 30, y: 50}
+        - {x: 12, y: 49}
+        - {x: -8, y: 36}
+        - {x: -32, y: 33}
+        - {x: -48, y: 25}
+        - {x: -57, y: 8}
+        - {x: -57, y: -23}
+        - {x: -52, y: -37}
+        - {x: -33, y: -50}
+        - {x: -1, y: -50}
+        - {x: 15, y: -43}
+        - {x: 25, y: -32}
+        - {x: 32, y: 6}
+      tessellationDetail: 0.2
+      bones: []
+      spriteID: 0693090d112422100800000000000000
+      internalID: 81700387527080288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cannon2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 260
+        width: 188
+        height: 106
+      alignment: 9
+      pivot: {x: 0.36861876, y: 0.46520105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 93, y: 35.5}
+        - {x: 92, y: 49.5}
+        - {x: 78, y: 48.5}
+        - {x: 36, y: 61.5}
+        - {x: 21, y: 69.5}
+        - {x: -45, y: 69.5}
+        - {x: -57, y: 57.5}
+        - {x: -63, y: 16.5}
+        - {x: -93, y: 45.5}
+        - {x: -93, y: 20.5}
+        - {x: -64, y: 5.5}
+        - {x: -62, y: -9.5}
+        - {x: -40, y: -31.5}
+        - {x: -25, y: -56.5}
+        - {x: 11, y: -58.5}
+        - {x: 32, y: -27.5}
+        - {x: 93, y: -15.5}
+      tessellationDetail: 0.1
+      bones: []
+      spriteID: c429d91edd12e4390800000000000000
+      internalID: -7832285465094024628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cannon3
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 100
+        width: 170
+        height: 120
+      alignment: 9
+      pivot: {x: 0.39225885, y: 0.4888031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 82, y: 62.5}
+        - {x: 70, y: 53.5}
+        - {x: 22, y: 78.5}
+        - {x: -45, y: 78.5}
+        - {x: -67, y: 48.5}
+        - {x: -83, y: 39.5}
+        - {x: -83, y: 20.5}
+        - {x: -70, y: 6.5}
+        - {x: -31, y: -49.5}
+        - {x: -17, y: -70.5}
+        - {x: 2, y: -73.5}
+        - {x: 16, y: -64.5}
+        - {x: 23, y: -46.5}
+        - {x: 40, y: -30.5}
+        - {x: 83, y: -26.5}
+      tessellationDetail: 0.1
+      bones: []
+      spriteID: d534e46a9b89d2890800000000000000
+      internalID: -7481155482866007203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas1_9
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 377
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea43820d7fd14a20800000000000000
+      internalID: 3044960551085230824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas1_10
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 375
+        width: 27
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c040a01f11097820800000000000000
+      internalID: 2916363466633658560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas1_11
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 379
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53eb2a8c1da4ca860800000000000000
+      internalID: 7542485740813467189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas1_17
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 83
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e20e3f90b7185c940800000000000000
+      internalID: 5315797300628676654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas1_18
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 63
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ad9778bdc4fff20800000000000000
+      internalID: 3458567544598289016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

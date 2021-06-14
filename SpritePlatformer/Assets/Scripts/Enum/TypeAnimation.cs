@@ -2,10 +2,12 @@
 {
     public enum TypeAnimation
     {
-        Idle=0,
-        Run=1,
-        JumpUp=2,
-        JumpDown=3,
-        Flying=4,
+        Any=0,
+        Idle=1,
+        Run=2,
+        JumpUp=3,
+        JumpDown=4,
+        Flying=5,
+        Attack=6
     }
 }

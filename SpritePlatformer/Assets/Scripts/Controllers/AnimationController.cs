@@ -21,8 +21,10 @@ namespace SpritePlatformer
             _unitView = unitView;
             _listControllers = listControllers;
             _unit.evtKill += Kill;
+            _unit.typeAnimation = TypeAnimation.Idle;
             _unit.evtSetAnimation += SetAnimation;
             _animationCfg = animationCfg;
+            
         }
 
         public void Initialization()

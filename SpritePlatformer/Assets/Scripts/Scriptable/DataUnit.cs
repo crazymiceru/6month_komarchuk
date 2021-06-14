@@ -2,7 +2,7 @@
 
 namespace SpritePlatformer
 {
-    [CreateAssetMenu(menuName = "My/UnitData")]
+    [CreateAssetMenu(menuName = "My/DataUnit")]
     public sealed class DataUnit : ScriptableObject
     {
         [Header("Move")]

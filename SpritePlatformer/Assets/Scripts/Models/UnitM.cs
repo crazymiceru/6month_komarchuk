@@ -61,7 +61,21 @@ namespace SpritePlatformer
         }
         private TypeAnimation _typeAnimation;
         internal event Action<TypeAnimation> evtSetAnimation = delegate { };
-        public bool isOnFloor;
+        public bool isOnGround;
+
+
+        internal event Action<Commands> evtSetCommand = delegate { };
+        private Commands _command;
+        public Commands command
+        {
+            get => _command;
+            set
+            {
+                if (_command != value) evtSetCommand(value);
+                    _command = value;
+            }
+        }
+
     }
 
 }
