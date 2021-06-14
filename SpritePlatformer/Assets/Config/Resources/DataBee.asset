@@ -16,7 +16,7 @@ MonoBehaviour:
   powerJump: 1000
   maxSpeed: 5
   maxLive: 1
-  destroyEffects: {fileID: 0}
+  destroyEffects: {fileID: 6259449542451428189, guid: 9b01db37e286b384fb540032c621328d, type: 3}
   timeViewDestroyEffects: 10
   AttackPower: 1
   addScores: 10

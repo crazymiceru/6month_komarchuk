@@ -2,14 +2,14 @@
 
 namespace SpritePlatformer
 {
-    internal sealed class EmptyCntroller : IController
+    internal sealed class EmptyController : IController
     {
         private ControlLeak _controlLeak = new ControlLeak("");
         private UnitM _unit;
         private IUnitView _unitView;
         private ListControllers _listControllers;
 
-        internal EmptyCntroller(UnitM unit, IUnitView unitView, ListControllers listControllers)
+        internal EmptyController(UnitM unit, IUnitView unitView, ListControllers listControllers)
         {
             _unit = unit;
             _unitView = unitView;

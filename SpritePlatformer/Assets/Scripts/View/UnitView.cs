@@ -6,9 +6,12 @@ namespace SpritePlatformer
 {
     public class UnitView : MonoBehaviour, IInteractive, IUnitView, IPool
     {
+
+        #region Variables
+
         public event Action<bool> evtTrigger = delegate { };
         public event Action<IInteractive, bool> evtCollision = delegate { };
-        private List<Func<PackInteractiveData, int>> _evtAttack = new List<Func<PackInteractiveData, int>>();
+        private List<Func<PackInteractiveData, (int,bool)>> _evtAttack = new List<Func<PackInteractiveData, (int,bool)>>();
         public event Action evtAnyCollision = delegate { };
 
         public Transform objectTransform => _objectTransform;
@@ -18,7 +21,6 @@ namespace SpritePlatformer
         public SpriteRenderer objectSpriteRednderer => _objectSpriteRednderer;
         private SpriteRenderer _objectSpriteRednderer;
 
-
         [SerializeField] private TypeItem _typeItem;
         [SerializeField] private int _numCfg = 0;
         private PoolInstatiate _poolInstatiate;
@@ -26,18 +28,38 @@ namespace SpritePlatformer
 
         private Dictionary<int, int> _listCollisionEnter = new Dictionary<int, int>();
 
-        event Func<PackInteractiveData, int> IInteractive.evtAttack
+        event Func<PackInteractiveData, (int, bool)> IInteractive.evtAttack
         {
-            add
-            {
-                _evtAttack.Add(value);
-            }
-
-            remove
-            {
-                _evtAttack.Remove(value);
-            }
+            add=> _evtAttack.Add(value);
+            remove=> _evtAttack.Remove(value);
         }
+
+        #endregion
+
+
+        #region Init
+
+        private void OnEnable()
+        {
+            evtTrigger = delegate { };
+            evtCollision= delegate { };
+            _evtAttack.Clear();
+            evtAnyCollision = delegate { };
+        }
+
+        private void Awake()
+        {
+            _objectTransform = transform;
+            _objectRigidbody2D = GetComponent<Rigidbody2D>();
+            if (_objectRigidbody2D == null) Debug.LogWarning($"does not find the Rigidbody2D on the {gameObject.name} object ");
+            _objectSpriteRednderer = GetComponent<SpriteRenderer>();
+            if (_objectSpriteRednderer == null) Debug.LogWarning($"does not find the SpriteRenderer on the {gameObject.name} object ");
+        }
+
+        #endregion
+
+
+        #region Utils
 
         public (TypeItem type, int cfg) GetTypeItem()
         {
@@ -51,14 +73,22 @@ namespace SpritePlatformer
             _typeItem = type; _numCfg = cfg;
         }
 
-        private void Awake()
+        public void SetPoolDestroy(PoolInstatiate poolInstatiate)
         {
-            _objectTransform = transform;
-            _objectRigidbody2D = GetComponent<Rigidbody2D>();
-            if (_objectRigidbody2D==null) Debug.LogWarning($"does not find the Rigidbody2D on the {gameObject.name} object ");
-            _objectSpriteRednderer = GetComponent<SpriteRenderer>();
-            if (_objectSpriteRednderer == null) Debug.LogWarning($"does not find the SpriteRenderer on the {gameObject.name} object ");
+            _poolInstatiate = poolInstatiate;
+            _isPool = true;
         }
+
+        void IInteractive.Kill()
+        {
+            if (_isPool) _poolInstatiate.DestroyGameObject(gameObject);
+            else Destroy(gameObject);
+        }
+
+        #endregion
+
+
+        #region Collision
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -68,8 +98,14 @@ namespace SpritePlatformer
 
                 if (_listCollisionEnter[ID] == 1 && collision.gameObject.TryGetComponent<IInteractive>(out IInteractive unitInteractive))
                 {
-                    evtCollision.Invoke(unitInteractive, true);
+                evtCollision.Invoke(unitInteractive, true);
                 }
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            var ID = collision.gameObject.GetInstanceID();
+            _listCollisionEnter[ID] = _listCollisionEnter.ContainsKey(ID) ? _listCollisionEnter[ID] - 1 : 0;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -82,26 +118,20 @@ namespace SpritePlatformer
                 evtTrigger.Invoke(false);
         }
 
-        public int Attack(PackInteractiveData data)
+        #endregion
+
+
+        public (int,bool) Attack(PackInteractiveData data)
         {
             int addScores = 0;
+            bool isDead=false;
             foreach (var item in _evtAttack)
             {
-                addScores += item(data);
+                (var addScoresTmp, var isDeadTmp) = item(data);
+                addScores += addScoresTmp;
+                if (isDeadTmp) isDead = true;
             }
-            return addScores;
-        }
-
-        public void SetPoolDestroy(PoolInstatiate poolInstatiate)
-        {
-            _poolInstatiate = poolInstatiate;
-            _isPool = true;
-        }
-
-        void IInteractive.Kill()
-        {
-            if (_isPool) _poolInstatiate.DestroyGameObject(gameObject);
-            else Destroy(gameObject);
+            return (addScores,isDead);
         }
     }
 }

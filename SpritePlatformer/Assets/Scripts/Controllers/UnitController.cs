@@ -14,7 +14,7 @@ namespace SpritePlatformer
 
         #region Init
 
-        internal UnitController(UnitM unit, IInteractive iInteractive, TypeItem typeItem, DataUnit unitData, ListControllers listControllers,Reference reference)
+        internal UnitController(UnitM unit, IInteractive iInteractive, TypeItem typeItem, DataUnit unitData, ListControllers listControllers, Reference reference)
         {
             _unit = unit;
             _iInteractive = iInteractive;
@@ -29,7 +29,7 @@ namespace SpritePlatformer
             _unit.evtDecLives += DecLive;
 
             _unit.packInteractiveData = new PackInteractiveData(_unitData.AttackPower, typeItem);
-                
+
             _unit.maxLive = _unitData.maxLive;
             _unit.maxSpeed = _unitData.maxSpeed;
 
@@ -51,27 +51,35 @@ namespace SpritePlatformer
         {
             if (_unitData.destroyEffects != null)
             {
-                var go = GameObject.Instantiate(_unitData.destroyEffects, _gameObject.transform.position , Quaternion.identity);
+                var go = GameObject.Instantiate(_unitData.destroyEffects, _gameObject.transform.position, Quaternion.identity);
                 go.transform.SetParent(_reference.Trash);
                 GameObject.Destroy(go, _unitData.timeViewDestroyEffects);
             }
         }
 
-        
-        private int Attack(PackInteractiveData pack)
+
+        private (int, bool) Attack(PackInteractiveData pack)
         {
             int addScores = 0;
-                if (_unit.HP != 0)
+            bool isDead = false;
+            if (_unit.HP != 0)
+            {
+                _unit.HP -= pack.attackPower;
+                if (_unit.HP == 0)
                 {
-                    _unit.HP -= pack.attackPower;
-                    if (_unit.HP == 0) addScores = _unitData.addScores;
+                    addScores = _unitData.addScores;
+                    isDead = true;
                 }
-            return addScores;
+            }
+            return (addScores, isDead);
         }
 
         private void OutInteractive(IInteractive ui, bool isEnter)
         {
-            var addScores = ui.Attack(_unit.packInteractiveData);
+            if (isEnter)
+            {
+                ui.Attack(_unit.packInteractiveData);
+            }
         }
 
         private void Kill()

@@ -7,7 +7,12 @@ namespace SpritePlatformer
     internal sealed class LoadDataObjects
     {
         private static Dictionary<string, object> _data = new Dictionary<string, object>();
- 
+
+        public static void Clear()
+        {
+            _data.Clear();
+        }
+
         private static void Add<T>(string key, T value) where T : Object
         {
             _data.Add(key, value);
@@ -27,7 +32,7 @@ namespace SpritePlatformer
         {
             var path = key;
             var resLoad= Resources.Load<T>(Path.ChangeExtension(path, null));
-            if (resLoad==null) Debug.Log($"Resources dont load: {path}");
+            if (resLoad==null) Debug.LogWarning($"Resource don't load: {path}");
             return resLoad;
         }
 
