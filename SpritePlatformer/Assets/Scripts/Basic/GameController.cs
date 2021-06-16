@@ -28,13 +28,17 @@ namespace SpritePlatformer
             var player = (GameObject)new PlayerBuild(_poolInstatiate, _listControllers, _reference).CreateGameObject(_reference.Trash).AddComponents();
             _reference.player = player;
 
-            //new BeeBuild(_poolInstatiate, _listControllers, _reference).CreateGameObject(_reference.Trash).AddComponents();
-            //new CannonBuild(_poolInstatiate, _listControllers, _reference).CreateGameObject(_reference.Trash).AddComponents();
-
+            new FlagsCanvasController(_reference.gameM);
+            new LivesCanvasController(_reference.playerM);
+            _listControllers.Add(new ScoresCanvasController(_reference.playerM)); 
             FindAndCreateObjects();
+            
+
 
 
             Transform background = FindObjectOfType<TagBackground>().transform;
+
+
             if (background == null) Debug.LogWarning($"Dont find Background");
             _listControllers.Add(
                 new ParallaxController(
@@ -64,24 +68,14 @@ namespace SpritePlatformer
         public void FindAndCreateObjects()
         {
             var objects = GameObject.FindObjectsOfType<MonoBehaviour>().OfType<IUnitView>();
+            _reference.gameM.countFlags = 0;
             foreach (var item in objects)
             {
-                var t = item.GetTypeItem();                
-                if (t.type!=TypeItem.Player)ParseType(t.type).SetNumCfg(t.cfg).SetGameObject((item as MonoBehaviour).gameObject).AddComponents();
+                var t = item.GetTypeItem();
+                //Debug.Log($"GameObject:{(item as MonoBehaviour).name}");
+                if (t.type!=TypeItem.Player)Utils.ParseType(t.type,_poolInstatiate,_listControllers,_reference)
+                        .SetNumCfg(t.cfg).SetGameObject((item as MonoBehaviour).gameObject).AddComponents();                
             }
-        }
-
-        private UnitBuildBasic ParseType(TypeItem typeItem)
-        {
-            return typeItem switch
-            {                
-                TypeItem.Player => new PlayerBuild(_poolInstatiate, _listControllers, _reference),
-                TypeItem.Bee => new BeeBuild(_poolInstatiate, _listControllers, _reference),
-                TypeItem.Cannon => new CannonBuild(_poolInstatiate, _listControllers, _reference),
-                TypeItem.Core => new CoreBuild(_poolInstatiate, _listControllers, _reference),
-                TypeItem.None => throw new NotImplementedException(),
-                _ => throw new NotImplementedException(),
-            };
         }
     }
 }

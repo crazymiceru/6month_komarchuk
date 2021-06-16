@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d3f22e3def4b3458275ab56ed77e1e, type: 3}
   m_Name: Global
   m_EditorClassIdentifier: 
-  SizeLoopBackground: {x: 18, y: 0}
+  SizeLoopBackground: {x: 25, y: 0}
   coefficientParallaxBackground: {x: 0.4, y: 0}

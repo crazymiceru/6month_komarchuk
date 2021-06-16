@@ -6,38 +6,49 @@ namespace SpritePlatformer
     {
         private ControlLeak _controlLeak = new ControlLeak("OnFloorController");
         private UnitM _unit;
-        private IInteractive _iInteractive;
-        private ListControllers _listControllers;
-        private int countFloor;
+        private ListControllers _listControllers;        
+        private Transform _transform;
 
-        internal OnGroundController(UnitM unit, IInteractive iInteractive, ListControllers listControllers)
+        internal OnGroundController(UnitM unit, IUnitView iUnitView, ListControllers listControllers)
         {
             _unit = unit;
-            _iInteractive = iInteractive;
             _listControllers = listControllers;
             _unit.evtKill += Kill;
-            _iInteractive.evtTrigger += DetectFloor;
+            _transform = iUnitView.objectTransform;
+
+            if (FindDetectCollision("foot", out OnGroundView onGroundView)) onGroundView.evtUpdate += DetectGround;
+            if (FindDetectCollision("front", out OnGroundView onFrontView)) onFrontView.evtUpdate += DetectFront;
         }
 
-        private void DetectFloor(bool isEnter)
+
+        private bool FindDetectCollision(string name,out OnGroundView onGroundView)
         {
-            if (isEnter)
-            {
-                countFloor++;
-            }
-            else countFloor--;
+            bool isOk = true;
+            onGroundView = null;
 
-            if (countFloor > 0)
+            var go = _transform.Find(name);
+            if (go == null)
             {
-                _unit.isOnGround = true;               
+                isOk = false;
             }
-
-            else _unit.isOnGround = false;
+            onGroundView= go.GetComponent<OnGroundView>();
+            if (onGroundView == null)
+            {
+                isOk = false;
+            }
+            return isOk;
         }
 
-        void Kill()
+        private void DetectGround(bool isEnter)
         {
-            _listControllers.Delete(this);
+            _unit.isOnGround = isEnter;
+            if (isEnter) _unit.command = Commands.onGround;            
         }
+        private void DetectFront(bool isEnter)
+        {
+            _unit.isWallFront = isEnter;
+        }
+
+        void Kill() => _listControllers.Delete(this);
     }
 }

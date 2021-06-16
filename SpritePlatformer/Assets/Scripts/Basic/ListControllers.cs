@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SpritePlatformer
 {
-    internal sealed class ListControllers : ILateExecute, IInitialization, IExecute
+    public sealed class ListControllers : ILateExecute, IInitialization, IExecute
     {
         private event Action _init = delegate { };
         private event Action<float> _execute = delegate { };

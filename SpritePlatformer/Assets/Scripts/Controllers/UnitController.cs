@@ -40,6 +40,7 @@ namespace SpritePlatformer
         public void Initialization()
         {
             _unit.HP = _unit.maxLive;
+            _unit.scores = 0;
         }
 
         #endregion
@@ -67,6 +68,7 @@ namespace SpritePlatformer
                 _unit.HP -= pack.attackPower;
                 if (_unit.HP == 0)
                 {
+                    //Debug.Log($"Destroy {_gameObject.name} scores:{_unitData.addScores}");
                     addScores = _unitData.addScores;
                     isDead = true;
                 }
@@ -78,7 +80,9 @@ namespace SpritePlatformer
         {
             if (isEnter)
             {
-                ui.Attack(_unit.packInteractiveData);
+                //Debug.Log($"Object {_gameObject.name} Attack {(ui as MonoBehaviour).name}");
+                var scores=ui.Attack(_unit.packInteractiveData).scores;
+                _unit.scores += scores;
             }
         }
 

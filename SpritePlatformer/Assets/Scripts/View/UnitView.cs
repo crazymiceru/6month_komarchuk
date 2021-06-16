@@ -9,10 +9,10 @@ namespace SpritePlatformer
 
         #region Variables
 
-        public event Action<bool> evtTrigger = delegate { };
+        public event Action<Collider2D, bool> evtTrigger = delegate { };
         public event Action<IInteractive, bool> evtCollision = delegate { };
         private List<Func<PackInteractiveData, (int,bool)>> _evtAttack = new List<Func<PackInteractiveData, (int,bool)>>();
-        public event Action evtAnyCollision = delegate { };
+        public event Action<bool> evtAnyCollision = delegate { };
 
         public Transform objectTransform => _objectTransform;
         private Transform _objectTransform;
@@ -39,15 +39,20 @@ namespace SpritePlatformer
 
         #region Init
 
-        private void OnEnable()
+        public void ClearEvt()
         {
             evtTrigger = delegate { };
             evtCollision= delegate { };
             _evtAttack.Clear();
-            evtAnyCollision = delegate { };
+            evtAnyCollision = delegate { };            
         }
 
         private void Awake()
+        {
+            GetComponents();
+        }
+
+        private void GetComponents()
         {
             _objectTransform = transform;
             _objectRigidbody2D = GetComponent<Rigidbody2D>();
@@ -76,7 +81,7 @@ namespace SpritePlatformer
         public void SetPoolDestroy(PoolInstatiate poolInstatiate)
         {
             _poolInstatiate = poolInstatiate;
-            _isPool = true;
+            _isPool = true;            
         }
 
         void IInteractive.Kill()
@@ -92,7 +97,7 @@ namespace SpritePlatformer
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-                evtAnyCollision.Invoke();
+                evtAnyCollision.Invoke(true);
                 var ID = collision.gameObject.GetInstanceID();
                 _listCollisionEnter[ID] = _listCollisionEnter.ContainsKey(ID) ? _listCollisionEnter[ID] + 1 : 1;
 
@@ -104,18 +109,19 @@ namespace SpritePlatformer
 
         private void OnCollisionExit2D(Collision2D collision)
         {
+            evtAnyCollision.Invoke(false);
             var ID = collision.gameObject.GetInstanceID();
             _listCollisionEnter[ID] = _listCollisionEnter.ContainsKey(ID) ? _listCollisionEnter[ID] - 1 : 0;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
-        {           
-                evtTrigger.Invoke(true);
+        {                           
+                evtTrigger.Invoke(other,true);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-                evtTrigger.Invoke(false);
+                evtTrigger.Invoke(other,false);
         }
 
         #endregion

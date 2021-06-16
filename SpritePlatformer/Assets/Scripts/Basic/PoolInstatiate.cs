@@ -77,6 +77,7 @@ namespace SpritePlatformer
             if (resultGameObject.TryGetComponent(out IPool pool))
             {
                 pool.SetPoolDestroy(this);
+                pool.ClearEvt();
             }
             else Debug.LogWarning($"Dont find component IPool in object: {resultGameObject.name}");
 

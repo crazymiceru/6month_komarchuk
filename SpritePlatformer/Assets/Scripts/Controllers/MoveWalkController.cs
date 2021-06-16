@@ -38,6 +38,9 @@ namespace SpritePlatformer
         private void Move(float deltaTime)
         {
             leftRight.x = deltaTime * _unitData.powerMove * _unitView.objectRigidbody2D.mass * _unit.control.x;
+            if (leftRight.x < 0 && _unit.isWallFront ) leftRight.x = 0;
+            if (leftRight.x > 0 && _unit.isWallFront) leftRight.x = 0;
+
             _unitView.objectRigidbody2D.AddForce(leftRight);
             if (leftRight.x != 0) _unit.command = Commands.run;
             else _unit.command = Commands.stop;

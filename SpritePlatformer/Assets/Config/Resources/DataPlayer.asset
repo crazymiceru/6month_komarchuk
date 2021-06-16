@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cefaf1007a0896499251ae2828591d1, type: 3}
   m_Name: DataPlayer
   m_EditorClassIdentifier: 
-  powerMove: 5000
-  powerJump: 800
-  maxSpeed: 5
+  powerMove: 10000
+  powerJump: 650
+  minSqrLenghthTraectory: 0.2
+  maxSpeed: 4
   maxLive: 10
   destroyEffects: {fileID: 6259449542451428189, guid: 9b01db37e286b384fb540032c621328d, type: 3}
   timeViewDestroyEffects: 10

@@ -1,6 +1,6 @@
 ﻿namespace SpritePlatformer
 {
-    internal interface IController
+    public interface IController
     {
     }
 }

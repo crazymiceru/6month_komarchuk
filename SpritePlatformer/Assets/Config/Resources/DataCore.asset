@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerMove: 15000
   powerJump: 1000
+  minSqrLenghthTraectory: 0.2
   maxSpeed: 20
   maxLive: 1
   destroyEffects: {fileID: 6259449542451428189, guid: 9b01db37e286b384fb540032c621328d, type: 3}

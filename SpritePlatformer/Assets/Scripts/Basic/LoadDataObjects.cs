@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SpritePlatformer
 {
-    internal sealed class LoadDataObjects
+    public sealed class LoadDataObjects
     {
         private static Dictionary<string, object> _data = new Dictionary<string, object>();
 

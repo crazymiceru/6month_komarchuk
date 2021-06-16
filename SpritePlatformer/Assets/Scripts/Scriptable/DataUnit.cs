@@ -8,6 +8,7 @@ namespace SpritePlatformer
         [Header("Move")]
         public float powerMove = 500f;
         public float powerJump = 300f;
+        public float minSqrLenghthTraectory = 0.2f;
 
         [Header("Limits")]
         public float maxSpeed = 10;

@@ -1,9 +1,5 @@
 using UnityEngine;
 
-public class TagBackground : MonoBehaviour
+public sealed class TagBackground : MonoBehaviour
 {
-    private void Update()
-    {
-        Destroy(this);
-    }
 }

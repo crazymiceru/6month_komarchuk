@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624f6159acd7a1b4195b98867adaee15, type: 3}
   m_Name: FireCannon 1
   m_EditorClassIdentifier: 
-  frequencyFire: 5
+  frequencyFire: 6.1
   attackPower: 500
   angleClamp: {x: 70, y: 110}

@@ -7,9 +7,13 @@ namespace SpritePlatformer
     {
         None = 0,
         Player = 1,
-        Bee=100,
+        Coin=2,
+        Flag = 3,
+        Exit=4,
+        Bee =100,
         Cannon=101,
         Core=102,
+
     }
 
 

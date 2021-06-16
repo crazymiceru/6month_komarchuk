@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace SpritePlatformer
 {
-    internal sealed class UnitM
+    public sealed class UnitM
     {
         private ControlLeak _controlLeak = new ControlLeak("UnitMData");
 
         internal event Action evtKill = delegate { };
         internal event Action evtLives = delegate { };
         internal event Action evtDecLives = delegate { };
+        internal event Action evtScores = delegate { };
 
         private int _hp = -1;
         internal int maxLive = 0;
@@ -62,7 +63,7 @@ namespace SpritePlatformer
         private TypeAnimation _typeAnimation;
         internal event Action<TypeAnimation> evtSetAnimation = delegate { };
         public bool isOnGround;
-
+        public bool isWallFront;
 
         internal event Action<Commands> evtSetCommand = delegate { };
         private Commands _command;
@@ -76,6 +77,16 @@ namespace SpritePlatformer
             }
         }
 
+        public int scores
+        {
+            get => _scores;
+            set
+            {
+                _scores = value;
+                evtScores.Invoke();
+            }
+        }
+        private int _scores;
     }
 
 }
