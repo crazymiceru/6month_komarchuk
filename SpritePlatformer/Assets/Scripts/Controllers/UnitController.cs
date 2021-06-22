@@ -28,7 +28,7 @@ namespace SpritePlatformer
             _iInteractive.evtCollision += OutInteractive;
             _unit.evtDecLives += DecLive;
 
-            _unit.packInteractiveData = new PackInteractiveData(_unitData.AttackPower, typeItem);
+            _unit.packInteractiveData = new PackInteractiveData(_unitData.AttackPower, typeItem, (iInteractive as MonoBehaviour).gameObject);
 
             _unit.maxLive = _unitData.maxLive;
             _unit.maxSpeed = _unitData.maxSpeed;
