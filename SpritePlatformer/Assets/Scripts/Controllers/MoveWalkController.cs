@@ -44,7 +44,7 @@ namespace SpritePlatformer
             _unitView.objectRigidbody2D.AddForce(leftRight);
             if (leftRight.x != 0) _unit.command = Commands.run;
             else _unit.command = Commands.stop;
-            if (_unitView.objectRigidbody2D.velocity.y < -0.1f && !_unit.isOnGround) _unit.command = Commands.fall;
+            if (_unitView.objectRigidbody2D.velocity.y < -0.1f /*&& !_unit.isOnGround*/) _unit.command = Commands.fall;
             if (_unit.isOnGround) _unit.command = Commands.onGround;
             if (_unit.isJump && _unit.isOnGround) _unitView.objectRigidbody2D.AddForce(_unitData.powerJump * _unitView.objectRigidbody2D.mass * Vector2.up);
             if (_unit.isJump) _unit.command = Commands.jump;

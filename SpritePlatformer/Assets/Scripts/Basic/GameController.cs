@@ -37,13 +37,18 @@ namespace SpritePlatformer
 
 
             Transform background = FindObjectOfType<TagBackground>().transform;
-
-
             if (background == null) Debug.LogWarning($"Dont find Background");
             _listControllers.Add(
                 new ParallaxController(
                     background, player.transform, _global.coefficientParallaxBackground, _global.SizeLoopBackground, _listControllers
                     ));
+            Transform backgroundFly = FindObjectOfType<TagBackgroundFly>().transform;
+            if (background == null) Debug.LogWarning($"Dont find BackgroundFly");
+            _listControllers.Add(
+                new ParallaxController(
+                    backgroundFly, player.transform, _global.coefficientParallaxBackgroundFly, new Vector2(0f, 0f), _listControllers
+                    ));
+
             _listControllers.Add(
                 new ParallaxController(
                     _reference.MainCamera.transform, player.transform, new Vector2(0f, 0f), new Vector2(0f, 0f), _listControllers

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7353000272221189402}
   - component: {fileID: 4575994756917973962}
   - component: {fileID: 2469898728779843193}
+  - component: {fileID: 8892689681832496137}
   m_Layer: 0
   m_Name: Block 17
   m_TagString: Untagged
@@ -94,7 +95,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -132,3 +133,22 @@ PolygonCollider2D:
       - {x: -0.4140625, y: -0.24804688}
       - {x: -0.171875, y: -0.36328125}
       - {x: -0.03515625, y: -0.24023438}
+--- !u!251 &8892689681832496137
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4212518264574204327}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

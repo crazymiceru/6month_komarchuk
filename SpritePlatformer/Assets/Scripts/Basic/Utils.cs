@@ -40,9 +40,10 @@ namespace SpritePlatformer
                 TypeItem.Core => new CoreBuild(_poolInstatiate, _listControllers, _reference),
                 TypeItem.Coin => new CoinBuild(_poolInstatiate, _listControllers, _reference),
                 TypeItem.Flag => new FlagBuild(_poolInstatiate, _listControllers, _reference),
+                TypeItem.Box => new BoxBuild(_poolInstatiate, _listControllers, _reference),
                 TypeItem.Exit => new ExitBuild(_poolInstatiate, _listControllers, _reference),
                 TypeItem.None => throw new NotImplementedException($"{typeItem}"),
-                _ => throw new NotImplementedException($"{typeItem}"),
+                _ => throw new NotImplementedException($"Utils set ParseType:{typeItem}"),
             };
         }
     }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SizeLoopBackground: {x: 25, y: 0}
   coefficientParallaxBackground: {x: 0.4, y: 0}
+  coefficientParallaxBackgroundFly: {x: 0.7, y: 0.7}
