@@ -15,7 +15,7 @@ MonoBehaviour:
   powerMove: 500
   powerJump: 300
   minSqrLenghthTraectory: 0.2
-  maxSpeed: 10
+  maxSpeed: 5
   maxLive: 1
   destroyEffects: {fileID: 0}
   timeViewDestroyEffects: 10

@@ -55,7 +55,10 @@ namespace SpritePlatformer
             get=>_typeAnimation;
             set 
             {
-                if (_typeAnimation!=value) evtSetAnimation.Invoke(value); 
+                if (_typeAnimation != value)
+                {
+                    evtSetAnimation.Invoke(value);                    
+                }
                 _typeAnimation = value;
                 
             }

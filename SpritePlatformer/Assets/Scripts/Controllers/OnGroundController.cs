@@ -16,12 +16,12 @@ namespace SpritePlatformer
             _unit.evtKill += Kill;
             _transform = iUnitView.objectTransform;
 
-            if (FindDetectCollision("foot", out OnGroundView onGroundView)) onGroundView.evtUpdate += DetectGround;
-            if (FindDetectCollision("front", out OnGroundView onFrontView)) onFrontView.evtUpdate += DetectFront;
+            if (FindDetectCollision("foot", out OnTriggerView onGroundView)) onGroundView.evtUpdate += DetectGround;
+            if (FindDetectCollision("front", out OnTriggerView onFrontView)) onFrontView.evtUpdate += DetectFront;
         }
 
 
-        private bool FindDetectCollision(string name,out OnGroundView onGroundView)
+        private bool FindDetectCollision(string name,out OnTriggerView onGroundView)
         {
             bool isOk = true;
             onGroundView = null;
@@ -31,7 +31,7 @@ namespace SpritePlatformer
             {
                 isOk = false;
             }
-            onGroundView= go.GetComponent<OnGroundView>();
+            onGroundView= go.GetComponent<OnTriggerView>();
             if (onGroundView == null)
             {
                 isOk = false;
@@ -39,12 +39,12 @@ namespace SpritePlatformer
             return isOk;
         }
 
-        private void DetectGround(bool isEnter)
+        private void DetectGround(Collider2D _, bool isEnter)
         {
             _unit.isOnGround = isEnter;
             if (isEnter) _unit.command = Commands.onGround;            
         }
-        private void DetectFront(bool isEnter)
+        private void DetectFront(Collider2D _, bool isEnter)
         {
             _unit.isWallFront = isEnter;
         }

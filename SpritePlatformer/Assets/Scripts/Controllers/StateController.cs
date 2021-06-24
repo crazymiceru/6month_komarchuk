@@ -29,7 +29,7 @@ namespace SpritePlatformer
             if (targetAnimation != TypeAnimation.Any)
             {
                 //Debug.Log($"Start:{_unit.typeAnimation} Command:{command} End:{targetAnimation}");
-                _unit.typeAnimation = targetAnimation;
+                if (_unit.typeAnimation!= targetAnimation) _unit.typeAnimation = targetAnimation;
             }
         }
 
