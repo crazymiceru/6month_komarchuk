@@ -36,7 +36,7 @@ namespace SpritePlatformer
                 if (Mathf.Abs(_iTraectory.Track[_numTraectory].transform.position.x - _iUnitView.objectTransform.position.x)
                     <= _iTraectory.Track[_numTraectory].powerMove * deltaTime) _unit.control.x = 0;
                 if (Mathf.Abs(_iTraectory.Track[_numTraectory].transform.position.y - _iUnitView.objectTransform.position.y)
-                    <= _iTraectory.Track[_numTraectory].powerMove * deltaTime) _unit.control.z = 0;
+                    <= _iTraectory.Track[_numTraectory].powerMove * deltaTime) _unit.control.y = 0;
 
                 var d = Utils.SqrDist(_iUnitView.objectTransform.position.Change(z:0), _iTraectory.Track[_numTraectory].transform.position.Change(z: 0));
                 if (d < _dataUnit.minSqrLenghthTraectory)
