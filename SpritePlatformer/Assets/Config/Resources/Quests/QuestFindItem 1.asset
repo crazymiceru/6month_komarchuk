@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fdc2540a6b96f4ead683e536376f24, type: 3}
+  m_Name: QuestFindItem 1
+  m_EditorClassIdentifier: 
+  _image: {fileID: 21300000, guid: 1e38383cc73df3a4b8bfc41111656f0c, type: 3}
+  _completeItems: 02000000
+  _prefab: {fileID: 4718844489905069379, guid: 8750b854c89df224ca6ada256d721afb, type: 3}
+  _copletePrefab: {fileID: 8401239042754446441, guid: d999a92791fd27e4990c83ee724c6385, type: 3}
+  _isMove: 0

@@ -14,7 +14,7 @@ namespace SpritePlatformer
         Bee =100,
         Cannon=101,
         Core=102,
-
+        QuestFindItem=1000,
     }
 
 

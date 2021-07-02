@@ -4,7 +4,7 @@ namespace SpritePlatformer
 {
     public interface IUnitView
     {
-        (TypeItem type, int cfg) GetTypeItem();
+        public (TypeItem type, int cfg) GetTypeItem();
         void SetTypeItem(TypeItem type = TypeItem.None, int cfg = -1);
 
         public Transform objectTransform { get; }

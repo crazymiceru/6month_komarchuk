@@ -9,15 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cefaf1007a0896499251ae2828591d1, type: 3}
-  m_Name: DataCoin
+  m_Script: {fileID: 11500000, guid: 914975f201565d94487552afbca400c1, type: 3}
+  m_Name: AnimationQuestFindItem 1
   m_EditorClassIdentifier: 
-  powerMove: 500
-  powerJump: 300
-  minSqrLenghthTraectory: 0.2
-  maxSpeed: 15
-  maxLive: 1
-  destroyEffects: {fileID: 0}
-  timeViewDestroyEffects: 10
-  AttackPower: 0
-  addScores: 1
+  speed: 10
+  _animationData:
+  - _isLoop: 0
+    _typeAnimation: 1
+    _sprites:
+    - {fileID: 21300000, guid: 1e38383cc73df3a4b8bfc41111656f0c, type: 3}

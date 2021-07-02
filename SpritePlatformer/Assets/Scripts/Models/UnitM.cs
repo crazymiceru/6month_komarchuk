@@ -22,7 +22,7 @@ namespace SpritePlatformer
             get => _hp;
             set
             {
-                if (_hp != value && (_hp > -1 || value > 0))
+                if (_hp != value && (_hp > -1 || value > 0 || value==-1000))
                 {
                     if (_hp < value)
                     {
@@ -32,7 +32,7 @@ namespace SpritePlatformer
 
                     if (_hp > value)
                     {
-                            if (_hp > 0 && value <= 0)
+                            if ((_hp > 0 && value <= 0) || value==-1000)
                             {
                                 evtKill();
                             }
@@ -49,6 +49,7 @@ namespace SpritePlatformer
 
         internal Vector3 control = Vector3.zero;
         internal bool isJump;
+        internal bool isInteractive;
 
         public TypeAnimation typeAnimation
         { 

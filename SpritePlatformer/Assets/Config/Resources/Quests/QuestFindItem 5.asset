@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cefaf1007a0896499251ae2828591d1, type: 3}
-  m_Name: DataCoin
+  m_Script: {fileID: 11500000, guid: c6fdc2540a6b96f4ead683e536376f24, type: 3}
+  m_Name: QuestFindItem 5
   m_EditorClassIdentifier: 
-  powerMove: 500
-  powerJump: 300
-  minSqrLenghthTraectory: 0.2
-  maxSpeed: 15
-  maxLive: 1
-  destroyEffects: {fileID: 0}
-  timeViewDestroyEffects: 10
-  AttackPower: 0
-  addScores: 1
+  _image: {fileID: 3126274414183091818, guid: a8463cbc9e2f71d47a2d2af3496d7825, type: 3}
+  _completeItems: 
+  _copletePrefab: {fileID: 0}
+  _isMove: 1

@@ -22,8 +22,10 @@ namespace SpritePlatformer
             v = Input.GetAxis("Vertical");
             h = Input.GetAxis("Horizontal");
             _unit.isJump = Input.GetButtonDown("Jump");
+            _unit.isInteractive = Input.GetButtonDown("Submit");
             _unit.control.x = h;
             _unit.control.y = v;
+
         }
 
         private void Kill()

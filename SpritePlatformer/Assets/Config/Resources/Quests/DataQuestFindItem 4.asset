@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cefaf1007a0896499251ae2828591d1, type: 3}
-  m_Name: DataCoin
+  m_Name: DataQuestFindItem 4
   m_EditorClassIdentifier: 
   powerMove: 500
   powerJump: 300
   minSqrLenghthTraectory: 0.2
-  maxSpeed: 15
-  maxLive: 1
-  destroyEffects: {fileID: 0}
+  maxSpeed: 10
+  maxLive: 0
+  destroyEffects: {fileID: 2275949063767128986, guid: ab641a98b479e114484f80cf987520e5, type: 3}
   timeViewDestroyEffects: 10
   AttackPower: 0
   addScores: 1

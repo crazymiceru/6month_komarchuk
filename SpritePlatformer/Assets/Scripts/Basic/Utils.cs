@@ -29,6 +29,31 @@ namespace SpritePlatformer
             return new Vector2(x == null ? org.x : (float)x, y == null ? org.y : (float)y);
         }
 
+        public static void SetPositionSpriteGround(this GameObject gameObject, GameObject targetGameObject)
+        {
+
+            var position = targetGameObject.transform.position;
+
+            if (gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)
+                && targetGameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteTarget))
+            {
+                gameObject.transform.position = position.Change(y: position.y + sprite.bounds.size.y / 2 - spriteTarget.bounds.size.y  / 2);
+            }
+        }
+
+        public static UnitBuildBasic InstantiateCntr(GameObject gameObject, PoolInstatiate _poolInstatiate, ListControllers _listControllers, Reference _reference)
+        {
+            if (gameObject.TryGetComponent<IUnitView>(out IUnitView unitView))
+            {
+                var t = unitView.GetTypeItem();
+                UnitBuildBasic go = Utils.ParseType(t.type, _poolInstatiate, _listControllers, _reference)
+                           .SetNumCfg(t.cfg).SetGameObject(gameObject).AddComponents();
+                return go;
+            }
+            Debug.LogWarning($"Dont find nitView at object {gameObject.name}");
+            return null;
+        }
+
         public static UnitBuildBasic ParseType(TypeItem typeItem, PoolInstatiate _poolInstatiate, ListControllers _listControllers, Reference _reference)
         {
             //Debug.Log($"Parse:{typeItem}");
@@ -42,8 +67,9 @@ namespace SpritePlatformer
                 TypeItem.Flag => new FlagBuild(_poolInstatiate, _listControllers, _reference),
                 TypeItem.Box => new BoxBuild(_poolInstatiate, _listControllers, _reference),
                 TypeItem.Exit => new ExitBuild(_poolInstatiate, _listControllers, _reference),
-                TypeItem.None => throw new NotImplementedException($"{typeItem}"),
-                _ => throw new NotImplementedException($"Utils set ParseType:{typeItem}"),
+                TypeItem.QuestFindItem => new QuestFindItemBuild(_poolInstatiate, _listControllers, _reference),
+                TypeItem.None => new EmptyBuild(_poolInstatiate, _listControllers, _reference),
+                _ => new EmptyBuild(_poolInstatiate, _listControllers, _reference),
             };
         }
     }
